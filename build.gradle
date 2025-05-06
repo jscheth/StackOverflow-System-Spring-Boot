@@ -18,20 +18,17 @@ repositories {
 }
 
 dependencies {
-    // Web Services (SOAP)
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
-
-    // JPA (Database ORM)
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
-    // Test support
+    // ✅ Lombok for less boilerplate code
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
-    // Optional: Add a database driver (e.g., PostgreSQL, H2, etc.)
-    // implementation 'org.postgresql:postgresql'
-    // implementation 'com.h2database:h2'
 }
+
 
 tasks.named('test') {
     useJUnitPlatform()
