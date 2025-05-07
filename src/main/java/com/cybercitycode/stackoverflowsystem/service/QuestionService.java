@@ -6,6 +6,7 @@ import com.cybercitycode.stackoverflowsystem.model.User;
 
 import com.cybercitycode.stackoverflowsystem.model.enums.StatusType;
 import com.cybercitycode.stackoverflowsystem.repository.QuestionRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+@RequiredArgsConstructor
 public class QuestionService {
-    @Autowired
-    private QuestionRepository questionRepo;
+
+    private final QuestionRepository questionRepo;
 
     public List<Question> getLatestQuestions() {
         return questionRepo.findAll(Sort.by(Sort.Direction.DESC, "createdDate"));
